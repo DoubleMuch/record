@@ -16,7 +16,7 @@ sudo install make
 （会报错，但好像不影响，暂时没有管）
 
 
-sudo apt install texlive-latex-base
+sudo apt install texlive-latex-base(解决问题）
 
 
 参考链接
