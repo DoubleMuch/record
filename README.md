@@ -34,3 +34,63 @@ sudo make install
 https://qiaoxu123.github.io/post/ubuntu-ooqp-useguide/
 
 
+
+passwd 改用户密码
+sudo passwd 改root密码
+
+
+* 妙算备份与刷机
+
+    * 备份到根目录的backup.tgz里面 
+        * cd /
+        * su
+        * tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys --exclude=/media /
+    * 刷机
+        * 备份uuid 
+            * sudo cp -pdr fstab ./外置存储
+        * 解压
+            * cd /
+            * su
+            * sudo tar xvpfz ./外置存储backup.tgz 
+        * 恢复fstab
+        * 覆盖/boot/grub/grub.cfg文件中的UUID号（主分区的，用fstab中的主分区uuid覆盖掉grub.cfb中的）
+
+
+
+onboardsdk
+
+cd Onboard-SDK
+mkdir build
+cd build
+cmake ..
+make djiosdk-core
+sudo make install djiosdk-core
+
+
+ceres 
+cd crers
+    mkdir build
+    cd build
+    cmake ..
+    make 
+   make install
+
+sudo apt-get install ros-kinetic-ddynamic-reconfigure
+
+
+realsense2 missing
+参考
+https://github.com/IntelRealSense/librealsense/blob/development/doc/distribution_linux.md
+
+
+rosrun global_fusion global_fusion_node 
+rosrun vins vins_node /home/dji/tfes/src/VINS-Fusion/config/realsense_d435i/realsense_stereo_imu_config.yaml
+rosrun global_fusion global_fusion_node 
+
+ rospack find  packagename 
+
+
+
+
+
+
