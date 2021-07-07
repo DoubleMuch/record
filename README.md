@@ -1,3 +1,28 @@
+### Btraj记录
+#### 20210707
+https://github.com/HKUST-Aerial-Robotics/Btraj  代码一开始编译的问题，解决办法：
+
+
+在 plan_utils/rviz_plugins的CMAKELISTS中第83行的add_library(${PROJECT_NAME} ${SOURCE_FILES})后面添加一行
+
+
+add_dependencies(${PROJECT_NAME} multi_map_server_generate_messages_cpp)
+
+
+run simulation.launch 中鼠标点击设置航点不动的问题，主要原因way_pointgenerate.cpp中第174行if (msg->pose.position.z > 0) 限制了要求读回的鼠标点击的坐标z要大于0才可以，但实验发现不论鼠标点击哪里，获得的xy,都比较正常，z一直为0，不知是我的电脑问题还是由bug，解决办法，修改 plan_utils/rviz_plugins/pose_tool.cpp第90行改成
+
+
+Ogre::Plane ground_plane( Ogre::Vector3::UNIT_Z, 1.0f );设置点击鼠标左键触发事件的时候z轴强制设置为1，这个后续需要继续改，暂时这样可以通过鼠标控制xy的目标点
+
+
+b_traj_node.cpp中pointInflate函数里面vector<pcl::PointXYZ> infPts(20);不应该初始化为20，因为后面添加是用push_back导致前20个其实是空点，增加了无效点云的数量，使可视化卡顿。初始化直接为0就好。
+
+
+
+另有还有一个问题没解决的就是，在相邻点云膨胀的时候，会出现许多重复的点云，也都一并放入了cloud_inflation中，也会增加卡顿。如果可以，可以在前面添加一个去除在同一个栅格中的点云的步骤、
+
+
+
 ### ooqp安装记录
 ooqp参考链接
 https://blog.csdn.net/qq_42488462/article/details/114393626
