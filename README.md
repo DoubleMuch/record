@@ -22,6 +22,10 @@ Ogre::Plane ground_plane( Ogre::Vector3::UNIT_Z, 1.0f );设置点击鼠标左键
 4.待解决！另有还有一个问题没解决的就是，在相邻点云膨胀的时候，会出现许多重复的点云，也都一并放入了cloud_inflation中，也会增加卡顿。如果可以，可以在前面添加一个去除在同一个栅格中的点云的步骤、
 
 
+5.实际中考虑的障碍物肯定是对实际障碍物根据无人机半径进行膨胀后的障碍物点云描述，但是在当前仿真中似乎没有管膨胀后，只是根据实际障碍物的点云来进行仿真
+![avatar](https://github.com/DoubleMuch/md_picture/blob/2610a78a7aaab51c0f73c81c9517be03a31004cb/%E4%B8%8D%E8%80%83%E8%99%91%E8%86%A8%E8%83%80%E9%9A%9C%E7%A2%8D%E7%89%A9%E8%BD%A8%E8%BF%B9.png)
+
+
 
 ### ooqp安装记录
 ooqp参考链接
