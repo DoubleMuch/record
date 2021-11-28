@@ -117,6 +117,9 @@ rosrun vins vins_node /home/dji/tfes/src/VINS-Fusion/config/realsense_d435i/real
 rosrun global_fusion global_fusion_node 
 
  rospack find  packagename 
+ 
+ ### mpc轨迹跟踪
+ 1.solver生成器部分，mpc.set( INTEGRATOR_TYPE, INT_IRK_GL2);       //容易无解，可能是因为阶数2太小了，不够拟合，IRK：implicit  Runge-Kutta隐式龙哥库塔方法， GL：Gauss-Legendre integrator 高斯勒让德积分器 后面的数字2或4 表示积分器阶数
 
 
 
