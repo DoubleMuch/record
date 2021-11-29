@@ -1,3 +1,7 @@
+### mpc轨迹跟踪
+#### 20211128
+1.solver生成器部分，mpc.set( INTEGRATOR_TYPE, INT_IRK_GL2);       //容易无解，可能是因为阶数2太小了，不够拟合，IRK：implicit  Runge-Kutta隐式龙哥库塔方法， GL：Gauss-Legendre integrator 高斯勒让德积分器 后面的数字2或4 表示积分器阶数，默认一般用mpc.set( INTEGRATOR_TYPE, INT_RK4);  
+
 ### Btraj记录
 #### 20210707
 1.https://github.com/HKUST-Aerial-Robotics/Btraj  代码一开始编译的问题，解决办法：
@@ -120,6 +124,4 @@ rosrun global_fusion global_fusion_node
 
 rospack find  packagename 
  
- ### mpc轨迹跟踪
- 1.solver生成器部分，mpc.set( INTEGRATOR_TYPE, INT_IRK_GL2);       //容易无解，可能是因为阶数2太小了，不够拟合，IRK：implicit  Runge-Kutta隐式龙哥库塔方法， GL：Gauss-Legendre integrator 高斯勒让德积分器 后面的数字2或4 表示积分器阶数，默认一般用mpc.set( INTEGRATOR_TYPE, INT_RK4);  
-
+ 
