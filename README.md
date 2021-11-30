@@ -2,6 +2,10 @@
 #### 20211128
 1.solver生成器部分，mpc.set( INTEGRATOR_TYPE, INT_IRK_GL2);       //容易无解，可能是因为阶数2太小了，不够拟合，IRK：implicit  Runge-Kutta隐式龙哥库塔方法， GL：Gauss-Legendre integrator 高斯勒让德积分器 后面的数字2或4 表示积分器阶数，默认一般用mpc.set( INTEGRATOR_TYPE, INT_RK4);  
 
+2.rosrun rqt_tf_tree rqt_tf_tree   保证tf树正确，可以在rviz中,设置号fixed frame 为world ,target frame为base_link，进行视角跟踪
+
+![avatar](https://github.com/DoubleMuch/md_picture/blob/main/rviz.png?raw=true)
+
 ### Btraj记录
 #### 20210707
 1.https://github.com/HKUST-Aerial-Robotics/Btraj  代码一开始编译的问题，解决办法：
